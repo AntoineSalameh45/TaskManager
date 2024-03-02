@@ -25,32 +25,13 @@
 
 
 .delete-button {
-  color: red;
-  border: 2px transparent solid;
-  border-radius: 5px;
-  padding: 5px 10px;
   cursor: pointer;
   margin-left: 10px;
 }
 
 .delete-button:hover {
   color: red;
-  border: 2px red solid;
 }
-
-/* .checkbox-custom {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ccc;
-  border-radius: 3px;
-  cursor: pointer;
-}
-.checkbox-label{
-  margin-left: 11px;
-} */
 
 .checkbox-container {
   position: relative;

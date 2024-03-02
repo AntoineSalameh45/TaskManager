@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 // import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
 import TaskForm, { Task } from './taskform';
 import TabPanel from './tabpanel';
 import { loadActiveTasksFromLocalStorage, loadCompletedTasksFromLocalStorage, saveActiveTasksToLocalStorage, saveCompletedTasksToLocalStorage } from '../utils/localStorage';
-import NoTasksAlert from './notaskalert';
+import TaskPanel from './taskpanel';
 
 const VerticalTabs: React.FC = () => {
   const [value, setValue] = useState<number>(0);
@@ -96,11 +94,11 @@ const VerticalTabs: React.FC = () => {
   return (
     <Box
       sx={{
-        flexGrow: 1,
         bgcolor: 'background.paper',
         display: 'flex',
         height: '75vh',
-        width: '82.5vw',
+        minWidth: '85vw',
+        justifyContent: 'centered',
         borderRadius: '7px',
         border: 2,
         borderColor: '#40E0D0',
@@ -133,122 +131,31 @@ const VerticalTabs: React.FC = () => {
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
-          justifyContent: 'flex-start',
+          justifyContent: 'flex-center',
           alignItems: 'flex-start',
           position: 'relative',
         }}
       >
         <TabPanel value={value} index={0}>
-          {activeLoading ? (
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              <CircularProgress
-                style={{
-                  color: '#40E0D0',
-                }}
-              />
-            </Box>
-          ) : (
-            <>
-              <Box sx={{ marginBottom: '20px' }}>
-                <TaskForm addTask={handleAddTask} onDeleteTask={handleDeleteTask} />
-              </Box>
-              {activeTasks.length === 0 ? (
-                <Box sx={{ textAlign: 'center' }}>
-                  <NoTasksAlert 
-                    text='No Active Tasks!'
-                  />
-                </Box>
-              ) : (
-                <Box sx={{ '& > div': { marginBottom: '10px', padding: '10px', width: '200px' }, display: 'flex', flexWrap: 'wrap' }}>
-                  {activeTasks.map((task: Task) => (
-                    <div key={task.id} className="border-2 border-[#40E0D0] mx-6 mt-4 w-[200px] bg-[#afeeee69]" style={{ flex: '0 0 auto' }}>
-                      <h3>{task.title}</h3>
-                      <p>{task.description}</p>
-                      <label className="checkbox-container">
-                      <input
-                        type="checkbox"
-                        checked={task.completed}
-                        onChange={() => handleToggleCompletion(task.id)}
-                        className="checkbox-input"
-                      />
-                      <span className="checkmark"></span>
-                      <span className="checkbox-label">Completed</span>
-                      </label>
-                      <button
-                        type="button"
-                        onClick={() => handleDeleteTask(task.id)}
-                        className='delete-button'
-                      >
-                        <DeleteForeverIcon />
-                      </button>
-                    </div>
-                  ))}
-                </Box>
-              )}
-            </>
-          )}
+          <TaskForm 
+            addTask={handleAddTask}
+          />
+          <TaskPanel
+            loading={activeLoading}
+            tasks={activeTasks}
+            handleDeleteTask={handleDeleteTask}
+            handleToggleCompletion={handleToggleCompletion}
+          />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {completedLoading ? (
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              <CircularProgress
-                style={{
-                  color: '#40E0D0',
-                }}
-              />
-            </Box>
-          ) : (
-            <>
-              {completedTasks.length === 0 ? (
-                <Box sx={{ textAlign: 'center' }}>
-                  <NoTasksAlert 
-                    text='No Task Done Yet!'
-                  />
-                </Box>
-              ) : (
-                <Box sx={{ '& > div': { marginBottom: '10px', padding: '10px', width: '200px' }, display: 'flex', flexWrap: 'wrap' }}>
-                  {completedTasks.map((task: Task) => (
-                    <div key={task.id} className="border-2 border-[#40E0D0] mx-6 mt-4 w-[200px] bg-[#afeeee69]" style={{ flex: '0 0 auto' }}>
-                      <h3>{task.title}</h3>
-                      <p>{task.description}</p>
-                      <label className="checkbox-container">
-                      <input
-                        type="checkbox"
-                        checked={task.completed}
-                        onChange={() => handleToggleCompletion(task.id)}
-                        className="checkbox-input"
-                      />
-                      <span className="checkmark"></span>
-                      <span className="checkbox-label">Completed</span>
-                      </label>
-                      <button
-                        type="button"
-                        onClick={() => handleDeleteTask(task.id)}
-                        className='delete-button'
-                      >
-                      <DeleteForeverIcon />
-                      </button>
-                    </div>
-                  ))}
-                </Box>
-              )}
-            </>
-          )}
+          <TaskPanel
+            loading={completedLoading}
+            tasks={completedTasks}
+            handleDeleteTask={handleDeleteTask}
+            handleToggleCompletion={handleToggleCompletion}
+          />
         </TabPanel>
+
       </Box>
     </Box>
   );
