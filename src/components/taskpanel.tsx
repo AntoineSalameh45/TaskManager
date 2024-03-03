@@ -30,15 +30,28 @@ const TaskPanel: React.FC<TaskPanelProps> = ({ loading, tasks, handleDeleteTask,
       flexWrap: 'wrap', 
       gap: '10px', 
       justifyContent: 'center',
-      alignItems: 'center', 
-    }}>
+      alignItems: 'center',
+      '@media (max-width: 1244px)': {
+        '& > div': { 
+            width: '250px',
+            height: '150px',
+        },
+      },
+      '@media (max-width: 749px)': {
+        '& > div': { 
+            width: '200px',
+            height: '150px',
+        },
+      },
+    }}
+    >
       {loading ? (
         <Box
           sx={{
             position: 'absolute',
             top: '50%',
             left: '50%',
-            transform: 'translate(-50%, -50%)',
+            transform: 'translate(-25%, -25%)',
           }}
         >
           <CircularProgress

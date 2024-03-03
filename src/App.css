@@ -1,5 +1,5 @@
 #root {
-  max-width: 100vw;
+  width: 100vw;
   margin: 0 0;
   padding: 2rem;
 }
@@ -64,4 +64,11 @@
 
 .checkbox-label {
   margin-left: 30px; 
+}
+
+@media screen and (max-width:749px){
+  #root {
+    width: 100vw;
+    padding: 0.5rem;
+  }
 }

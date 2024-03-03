@@ -38,8 +38,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
   const isFormValid = title.trim() !== '' && description.trim() !== '';
 
   return (
-    <div className='w-[75vw]'>
-      <form onSubmit={handleSubmit} className="flex items-center justify-center mt-2">
+    <div className='w-[55vw] lg:w-[75vw] sm:w-[55vw]'>
+      <form onSubmit={handleSubmit} className="flex items-center justify-center mx-4 mt-2 flex-col md:flex-row ">
         <TextField
           label="Task title"
           variant="outlined"

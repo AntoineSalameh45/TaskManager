@@ -101,9 +101,12 @@ const VerticalTabs: React.FC = () => {
         borderRadius: '7px',
         border: 2,
         borderColor: '#40E0D0',
-        mx: 10,
+        mx: 5,
         mt: 5,
         boxShadow: '5px 5px 10px 5px rgba(0, 0, 0, 0.4) ',
+        '@media (max-width: 800px)': {
+          mx: 2,
+        }
       }}
     >
       <Tabs
