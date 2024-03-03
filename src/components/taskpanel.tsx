@@ -60,31 +60,33 @@ const TaskPanel: React.FC<TaskPanelProps> = ({ loading, tasks, handleDeleteTask,
               {tasks.map((task: Task) => (
                 <div 
                     key={task.id} 
-                    className="border-2 border-[#40E0D0] bg-[#afeeee69] hover:shadow-lg"
+                    className="border-2 border-[#40E0D0] bg-[#afeeee69] hover:shadow-[3px_5px_10px_5px_rgba(0,0,0,0.3)] flex flex-col"
                 >
-                  <h3 className='text-lg font-semibold'>
-                    {task.title}
-                  </h3>
-                  <p className='text-base font-extralight max-h-[100px] overflow-x-auto'>
-                    {task.description}
-                  </p>
-                  <label className="checkbox-container">
-                    <input
-                      type="checkbox"
-                      checked={task.completed}
-                      onChange={() => handleToggleCompletion(task.id)}
-                      className="checkbox-input"
-                    />
-                    <span className="checkmark"></span>
-                    <span className="checkbox-label">Completed</span>
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() => handleDeleteTask(task.id)}
-                    className='delete-button'
-                  >
-                    <DeleteForeverIcon />
-                  </button>
+                    <h3 className='text-lg font-semibold'>
+                        {task.title}
+                    </h3>
+                    <p className='text-base font-extralight max-h-[100px] overflow-x-auto'>
+                        {task.description}
+                    </p>
+                    <div className='mt-auto flex justify-around'>
+                        <label className="checkbox-container">
+                            <input
+                                type="checkbox"
+                                checked={task.completed}
+                                onChange={() => handleToggleCompletion(task.id)}
+                                className="checkbox-input"
+                            />
+                            <span className="checkmark"></span>
+                            <span className="checkbox-label">Completed</span>
+                        </label>
+                        <button
+                            type="button"
+                            onClick={() => handleDeleteTask(task.id)}
+                            className='delete-button'
+                        >
+                            <DeleteForeverIcon />
+                        </button>
+                    </div>
                 </div>
               ))}
             </>
