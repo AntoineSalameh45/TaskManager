@@ -1,8 +1,8 @@
 ---
 
-# Task Manager App
+# TaskManager
 
-Task Manager App is a web application designed to help users manage their tasks efficiently. It provides a user-friendly interface for creating, tracking, and organizing tasks.
+TaskManager is a web application designed to help users manage their tasks efficiently. It provides a user-friendly interface for creating, tracking, and organizing tasks.
 
 ## Technologies Used
 
