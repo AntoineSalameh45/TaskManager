@@ -1,3 +1,10 @@
+// This component displays an alert message when there are no tasks to show.
+
+// Props
+// - text: string - The text to be displayed in the alert.
+
+
+
 import React from 'react';
 import Box from '@mui/material/Box';
 

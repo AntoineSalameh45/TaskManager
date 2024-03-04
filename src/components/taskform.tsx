@@ -1,3 +1,19 @@
+// This component renders a form for adding new tasks to the task manager.
+
+// Props
+// - addTask: (newTask: Task) => void - A function to add a new task to the task manager.
+
+// State
+// - title: string - Represents the title of the new task.
+// - description: string - Represents the description of the new task.
+
+// Methods
+// - handleSubmit(e: React.FormEvent): void - Handles the form submission event and adds the new task to the task manager.
+// - isFormValid: boolean - Computes whether the form inputs are valid (both title and description are non-empty).
+
+
+
+
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -39,7 +55,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ addTask }) => {
 
   return (
     <div className='w-[55vw] lg:w-[75vw] sm:w-[55vw]'>
-      <form onSubmit={handleSubmit} className="flex items-center justify-center mx-4 mt-2 flex-col md:flex-row ">
+      <form onSubmit={handleSubmit} className="flex items-center mb-4 justify-center flex-col md:flex-row ">
         <TextField
           label="Task title"
           variant="outlined"

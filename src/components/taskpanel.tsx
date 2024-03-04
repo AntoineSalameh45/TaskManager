@@ -1,3 +1,16 @@
+// This component displays a panel containing tasks and provides functionality to delete tasks and toggle their completion status.
+
+// Props
+// - loading: boolean - Indicates whether tasks are being loaded.
+// - tasks: Task[] - An array of tasks to be displayed.
+// - handleDeleteTask: (taskId: string) => void - A function to handle task deletion.
+// - handleToggleCompletion: (taskId: string) => void - A function to handle toggling task completion status.
+
+
+
+
+
+
 import React from 'react';
 import { Box, CircularProgress } from '@mui/material';
 import NoTasksAlert from './notaskalert';
@@ -21,7 +34,6 @@ const TaskPanel: React.FC<TaskPanelProps> = ({ loading, tasks, handleDeleteTask,
   return (
     <Box sx={{ 
       '& > div': { 
-        marginTop: '10px',
         padding: '10px', 
         width: '300px', 
         height: '200px',

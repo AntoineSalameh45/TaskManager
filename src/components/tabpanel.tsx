@@ -1,3 +1,12 @@
+// This component represents a panel within a tabbed interface.
+
+// Props
+// - children?: React.ReactNode - The content to be displayed within the tab panel.
+// - index: number - The index of the current tab panel.
+// - value: number - The index of the currently selected tab.
+
+
+
 import React from 'react';
 
 interface TabPanelProps {

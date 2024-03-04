@@ -1,3 +1,26 @@
+// This component serves as the main container for the task manager application, displaying tabs for active tasks and completed tasks.
+
+// Props
+// None
+
+// State
+// - value: number - Represents the index of the currently selected tab.
+// - activeTasks: Task[] - Array of active tasks.
+// - completedTasks: Task[] - Array of completed tasks.
+// - activeLoading: boolean - Indicates whether active tasks are being loaded.
+// - completedLoading: boolean - Indicates whether completed tasks are being loaded.
+
+// Methods
+// - fetchData(): void - Fetches active tasks data from local storage.
+// - handleChange(newValue: number): void - Handles tab change event and loads corresponding task data.
+// - handleAddTask(newTask: Task): void - Adds a new task to the active tasks list.
+// - handleDeleteTask(taskId: string): void - Deletes a task from both active and completed tasks lists.
+// - handleToggleCompletion(taskId: string): void - Toggles the completion status of a task.
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import Tabs from '@mui/material/Tabs';
@@ -136,6 +159,7 @@ const VerticalTabs: React.FC = () => {
           justifyContent: 'flex-center',
           alignItems: 'flex-start',
           position: 'relative',
+          padding: 2,
         }}
       >
         <TabPanel value={value} index={0}>
