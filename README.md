@@ -33,7 +33,7 @@ git clone <repository-url>
 2. Navigate to the project directory:
 
 ```bash
-cd task-manager-app
+cd taskmanager
 ```
 
 3. Install dependencies:

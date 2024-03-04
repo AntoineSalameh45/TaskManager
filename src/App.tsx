@@ -1,12 +1,10 @@
 import './App.css';
-import { RecoilRoot } from 'recoil';
 import VerticalTabs from './components/tabs';
 
 function App() {
 
   return (
     <>
-    <RecoilRoot>
       <div>
         <h1 className="text-3xl font-bold text-center">
           Welcome to your friendly neighborhood&nbsp;
@@ -14,7 +12,6 @@ function App() {
         </h1>
         <VerticalTabs />
       </div>
-    </RecoilRoot>
     </>
   )
 }
